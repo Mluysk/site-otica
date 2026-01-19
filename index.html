@@ -28,14 +28,14 @@ body{
   min-height:100vh;
   display:flex;
   align-items:center;
-  justify-content:flex-start;
+  justify-content:center;
   overflow-x:hidden;
 }
 
 .container{
   max-width:1000px;
   width:100%;
-  padding:20px 20px 20px 0;
+  padding:20px;
   position:relative;
 }
 
@@ -226,14 +226,14 @@ p{
 
 footer{
   margin-top:14px;
-  text-align:left;
+  text-align:center;
   font-size:12px;
   opacity:.75;
 }
 
 .decor-image{
   position:absolute;
-  left:0;
+  left:calc(-1 * ((100vw - 100%) / 2));
   bottom:0;
   width:572px;
   max-width:60vw;
@@ -241,9 +241,6 @@ footer{
 }
 
 @media(max-width:850px){
-  body{ justify-content:center; }
-  .container{ padding:20px; }
-  footer{ text-align:center; }
   .card{ grid-template-columns:1fr; }
   .decor-image{
     position:static;
