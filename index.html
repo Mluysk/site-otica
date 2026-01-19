@@ -1,0 +1,300 @@
+<!doctype html>
+<html lang="pt-br">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Ótica Visouup</title>
+<meta name="theme-color" content="#0aa8a2">
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --verde:#0aa8a2;
+  --verde-esc:#067d78;
+  --amarelo:#f2c54a;
+  --branco:#ffffff;
+  --vidro: rgba(255,255,255,.12);
+  --borda: rgba(255,255,255,.22);
+  --sombra: 0 20px 60px rgba(0,0,0,.30);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Montserrat,Arial,sans-serif;
+  background:linear-gradient(135deg,var(--verde-esc),var(--verde));
+  color:#fff;
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  overflow-x:hidden;
+}
+
+.container{
+  max-width:1000px;
+  width:100%;
+  padding:20px;
+}
+
+.card{
+  background:var(--vidro);
+  border:1px solid var(--borda);
+  border-radius:22px;
+  padding:30px;
+  display:grid;
+  grid-template-columns:1.2fr .8fr;
+  gap:20px;
+  box-shadow:var(--sombra);
+  backdrop-filter:blur(10px);
+  overflow:hidden;
+  position:relative;
+}
+
+.card::before{
+  content:"";
+  position:absolute;
+  width:520px; height:520px;
+  left:-180px; top:-220px;
+  background: radial-gradient(circle at 35% 35%, rgba(242,197,74,.75), transparent 60%);
+  opacity:.25;
+  border-radius:999px;
+  pointer-events:none;
+}
+
+.card::after{
+  content:"";
+  position:absolute;
+  width:620px; height:620px;
+  right:-260px; bottom:-280px;
+  background: radial-gradient(circle at 70% 35%, rgba(255,255,255,.60), transparent 60%);
+  opacity:.18;
+  border-radius:999px;
+  pointer-events:none;
+}
+
+.left, .right{ position:relative; z-index:1; }
+
+.logo{
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin-bottom:18px;
+}
+
+.logo svg{ display:block; }
+
+.logo .glasses path{
+  fill:none;
+  stroke:var(--amarelo);
+  stroke-width:8;
+  stroke-linecap:round;
+  stroke-linejoin:round;
+}
+
+.brand{
+  margin:0;
+  font-size:28px;
+  font-weight:800;
+  letter-spacing:.3px;
+}
+
+.tag{
+  display:block;
+  margin-top:6px;
+  font-size:13px;
+  font-weight:700;
+  opacity:.9;
+  letter-spacing:.6px;
+}
+
+h2{
+  margin:0 0 10px 0;
+  font-size:32px;
+}
+
+p{
+  margin:0 0 18px 0;
+  opacity:.9;
+}
+
+.botoes{
+  display:flex;
+  flex-direction:column;
+  gap:12px;
+}
+
+.botao{
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:12px;
+  text-decoration:none;
+  color:#fff;
+  font-weight:800;
+  padding:16px;
+  border-radius:14px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,.25);
+  transition:.15s ease;
+  user-select:none;
+}
+
+.botao:hover{ transform:scale(1.02); filter:brightness(1.05); }
+.botao:active{ transform:scale(.99); }
+
+.whats{ background:rgba(124,255,178,.18); }
+.insta{ background:rgba(242,197,74,.20); }
+
+.icon{
+  width:22px;
+  height:22px;
+  display:inline-block;
+}
+
+.icon svg{
+  width:100%;
+  height:100%;
+  display:block;
+  fill: currentColor;
+}
+
+.info{
+  margin-top:18px;
+  font-weight:600;
+  font-size:14px;
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+}
+
+.info a{
+  color:#fff;
+  text-decoration:none;
+  opacity:.95;
+}
+.info a:hover{ text-decoration:underline; }
+
+.right{
+  background:rgba(255,255,255,.08);
+  border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;
+  padding:20px;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
+}
+
+.right h3{ margin:0 0 6px 0; }
+.right p{ margin:0 0 14px 0; font-size:14px; opacity:.85; }
+
+.marcas{
+  display:flex;
+  flex-wrap:wrap;
+  gap:8px;
+}
+
+.marcas span{
+  background:rgba(255,255,255,.15);
+  border:1px solid rgba(255,255,255,.12);
+  padding:8px 12px;
+  border-radius:999px;
+  font-size:12px;
+  font-weight:800;
+}
+
+footer{
+  margin-top:14px;
+  text-align:center;
+  font-size:12px;
+  opacity:.75;
+}
+
+@media(max-width:850px){
+  .card{ grid-template-columns:1fr; }
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+  <div class="card">
+
+    <!-- ESQUERDA -->
+    <div class="left">
+      <div class="logo">
+        <!-- Óculos (SVG simples, igual tema do cartão) -->
+        <svg class="glasses" width="80" height="40" viewBox="0 0 220 80" aria-hidden="true">
+          <path d="M20 20c8-10 18-15 30-15h35c10 0 18 8 18 18v18c0 18-10 30-28 30H60c-18 0-30-12-30-30V20z"/>
+          <path d="M200 20c-8-10-18-15-30-15h-35c-10 0-18 8-18 18v18c0 18 10 30 28 30h15c18 0 30-12 30-30V20z"/>
+          <path d="M103 38h14"/>
+        </svg>
+
+        <div>
+          <h1 class="brand">ÓTICA <span style="opacity:.92">VISOUUP</span></h1>
+          <small class="tag">DANDO UM UUP EM SUA VISÃO</small>
+        </div>
+      </div>
+
+      <h2>Fale com a gente</h2>
+      <p>Clique e vá direto para o atendimento.</p>
+
+      <div class="botoes">
+        <a class="botao whats"
+           href="https://wa.me/5541998163028?text=Oi!%20Vim%20pelo%20site%20da%20%C3%93tica%20Visouup."
+           target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <!-- WhatsApp SVG -->
+            <svg viewBox="0 0 32 32">
+              <path d="M19.11 17.62c-.25-.13-1.47-.72-1.7-.8-.23-.08-.4-.13-.57.13-.17.25-.65.8-.8.96-.15.17-.29.19-.55.07-.25-.13-1.06-.39-2.02-1.24-.75-.67-1.25-1.5-1.4-1.75-.15-.25-.02-.39.11-.51.12-.12.25-.29.37-.43.12-.15.17-.25.25-.41.08-.17.04-.31-.02-.44-.07-.13-.57-1.37-.78-1.88-.2-.48-.4-.41-.57-.42h-.48c-.17 0-.44.06-.67.31-.23.25-.88.86-.88 2.1 0 1.24.9 2.43 1.02 2.6.13.17 1.77 2.71 4.29 3.8.6.26 1.07.41 1.44.52.6.19 1.15.16 1.58.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.15-1.18-.06-.11-.23-.17-.48-.29z"/>
+              <path d="M26.67 5.33A13.24 13.24 0 0 0 16.02 0C8.85 0 3.03 5.82 3.03 12.98c0 2.28.6 4.5 1.74 6.45L3 32l12.8-1.74a12.9 12.9 0 0 0 6.2 1.58h.01c7.16 0 12.98-5.82 12.98-12.98 0-3.47-1.35-6.73-3.8-9.18zm-4.67 23.1h-.01c-1.98 0-3.92-.53-5.61-1.52l-.4-.24-7.6 1.03.98-7.41-.26-.43A10.76 10.76 0 0 1 7.2 12.98c0-5.94 4.84-10.78 10.79-10.78 2.88 0 5.6 1.12 7.64 3.16a10.73 10.73 0 0 1 3.15 7.63c0 5.94-4.84 10.78-10.78 10.78z"/>
+            </svg>
+          </span>
+          Abrir WhatsApp
+        </a>
+
+        <a class="botao insta"
+            href="https://www.instagram.com/otica__visouup/"
+           target="_blank" rel="noopener">
+          <span class="icon" aria-hidden="true">
+            <!-- Instagram SVG -->
+            <svg viewBox="0 0 24 24">
+              <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm10 2H7a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3z"/>
+              <path d="M12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6z"/>
+              <path d="M17.5 6.5a1 1 0 1 1 0 2 1 1 0 0 1 0-2z"/>
+            </svg>
+          </span>
+          Abrir Instagram
+        </a>
+      </div>
+
+      <div class="info">
+        <a href="tel:+554132556308">📞 (41) 3255-6308</a>
+        <a href="https://wa.me/5541998163028" target="_blank" rel="noopener">💬 (41) 99816-3028</a>
+        <div>📍 Rua Izabel Capelari Antoniacomi, 34 – Maracanã</div>
+      </div>
+    </div>
+
+    <!-- DIREITA -->
+    <div class="right">
+      <div>
+        <h3>Lentes e qualidade</h3>
+        <p>Trabalhamos com as melhores marcas do mercado.</p>
+      </div>
+
+      <div class="marcas">
+        <span>Transitions</span>
+        <span>Varilux</span>
+        <span>Zeiss</span>
+        <span>Hoya</span>
+        <span>Kodak</span>
+      </div>
+    </div>
+
+  </div>
+
+  <footer>© 2026 Ótica Visouup • Atendimento via WhatsApp e Instagram</footer>
+</div>
+</body>
+</html>
